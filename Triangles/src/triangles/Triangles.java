@@ -23,23 +23,23 @@ public class Triangles {
         int b = scanner.nextInt();
         int c = scanner.nextInt();
 
-        if (a <= 0 || b <= 0 || c <= 0) {
-            System.out.println("Dette er ikke en trekant");
-        } else if (a == b && b == c) {
-            System.out.println("Dette er en ligesidet trekant med tre lige sidelængder");
-        } else if (a == b && b == c) {
-            System.out.println("Dette er en ligebenet trekant med to lige sidelængder");
-        } else if (a != b && b != c) {
-            System.out.println("Dette er en trekant med tre forskellige sidelængder");
-        } else if (a + b < c) {
-            System.out.println("Dette er ikke en trekant");
-        } else if (a + c < b) {
-            System.out.println("Dette er ikke en trekant");
-        } else if (b + c < a) {
-            System.out.println("Dette er ikke en trekant");
-        }
+        System.out.println(triangle(a, b, c));
     }
 
+    public static String triangle(int a, int b, int c) {
+        String triangle = "";
+
+        if (a <= 0 || b <= 0 || c <= 0 || (a + b) <= c || (a + c) <= b || (b + c) <= a) {
+            triangle = "Not a triangle";
+        } else if (a == b && b == c) {
+            triangle = "Equilateral Triangle";
+        } else if (a == b || b == c || c == a) {
+            triangle = "Isosceles Triangle";
+        } else if (a != b && b != c) {
+            triangle = "Scalene Triangle";
+        }
+        return triangle;
+    }
 }
 
 /*
